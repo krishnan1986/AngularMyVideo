@@ -4,7 +4,7 @@ import { PlayerComponent } from './player.component';
 
 @Component({
     selector: 'my-controls',
-    template: `<button (click)="playVideo()">Play</button>
+    template: `<button (click)="playVideo()" [style.visibility]="toggleShowHide">Play</button>
     <button (click)="pauseVideo()">Pause </button>
    
     ` 
@@ -12,6 +12,7 @@ import { PlayerComponent } from './player.component';
 export class ControlsComponent implements OnInit {
    
     // @ViewChild(PlayerComponent) playerComponent: PlayerComponent;
+    toggleShowHide: string ="visible"; 
     constructor(private videoService: VideoService) { 
        
     }
@@ -24,6 +25,7 @@ export class ControlsComponent implements OnInit {
          console.log('playing')
         // this.videoService.play(this.playerComponent.videoplayer)
         this.videoService.callMyFunction();
+        this.toggleShowHide="hidden";
         
      }
 
@@ -31,7 +33,9 @@ export class ControlsComponent implements OnInit {
      {
          console.log('pausing ')
     //     this.videoService.pause(this.playerComponent.videoplayer)
+    
     this.videoService.pause();
+    this.toggleShowHide="visible";
         
      }
 
