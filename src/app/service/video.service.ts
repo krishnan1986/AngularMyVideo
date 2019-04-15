@@ -18,11 +18,13 @@ export class VideoService {
     private myFunctionCallSource1 = new Subject();
     private myFunctionCallSource2 = new Subject();
     private myFunctionCallSource3 = new Subject();
+    private myFunctionCallSource4 = new Subject();
 
     myFunctionCalled$ = this.myFunctionCallSource.asObservable();
     myFunctionCalled1$ = this.myFunctionCallSource1.asObservable();
      myFunctionCalled2$ = this.myFunctionCallSource2.asObservable();
     myFunctionCalled3$ = this.myFunctionCallSource3.asObservable();
+    myFunctionCalled4$ = this.myFunctionCallSource4.asObservable();
 
     callMyFunction(){
         this.myFunctionCallSource.next();
@@ -42,4 +44,11 @@ export class VideoService {
     {
         this.myFunctionCallSource3.next();
     }
+
+    reload()
+    {
+        this.myFunctionCallSource4.next();
+    }
+
+
 }

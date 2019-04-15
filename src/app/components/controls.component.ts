@@ -4,7 +4,7 @@ import { PlayerComponent } from './player.component';
 
 @Component({
     selector: 'my-controls',
-    templateUrl:'../controls.component.html'
+    templateUrl: '../controls.component.html'
 })
 export class ControlsComponent implements OnInit {
    
@@ -48,6 +48,12 @@ export class ControlsComponent implements OnInit {
          console.log('decreasing volume');
          this.videoService.decreaseVol();
          
+     }
+
+     reloadVideo(event:any)
+     {
+         console.log('reloading video');
+         this.videoService.reload();
      }
 
 

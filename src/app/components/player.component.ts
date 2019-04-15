@@ -49,6 +49,14 @@ export class PlayerComponent implements OnInit {
             ,
             err => console.log('MyService error', err)
         );
+
+        this.videoService.myFunctionCalled4$.subscribe(
+            res => {this.videoplayer.nativeElement.pause();
+                this.videoplayer.nativeElement.currentTime=0;
+                this.videoplayer.nativeElement.play();
+            },
+            err => console.log('MyService error', err)
+        );
     }
 
     ngOnInit() { 
