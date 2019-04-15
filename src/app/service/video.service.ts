@@ -16,9 +16,13 @@ export class VideoService {
     // }
     private myFunctionCallSource = new Subject();
     private myFunctionCallSource1 = new Subject();
+    private myFunctionCallSource2 = new Subject();
+    private myFunctionCallSource3 = new Subject();
 
     myFunctionCalled$ = this.myFunctionCallSource.asObservable();
     myFunctionCalled1$ = this.myFunctionCallSource1.asObservable();
+     myFunctionCalled2$ = this.myFunctionCallSource2.asObservable();
+    myFunctionCalled3$ = this.myFunctionCallSource3.asObservable();
 
     callMyFunction(){
         this.myFunctionCallSource.next();
@@ -29,4 +33,13 @@ export class VideoService {
         this.myFunctionCallSource1.next();
     }
 
+    increaseVol()
+    {
+        this.myFunctionCallSource2.next();
+    }
+
+    decreaseVol()
+    {
+        this.myFunctionCallSource3.next();
+    }
 }
