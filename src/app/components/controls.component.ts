@@ -7,7 +7,7 @@ import { PlayerComponent } from './player.component';
     templateUrl: '../controls.component.html'
 })
 export class ControlsComponent implements OnInit {
-   
+  
     // @ViewChild(PlayerComponent) playerComponent: PlayerComponent;
     toggleShowHide: string ="visible"; 
     constructor(private videoService: VideoService) { 
@@ -54,6 +54,27 @@ export class ControlsComponent implements OnInit {
      {
          console.log('reloading video');
          this.videoService.reload();
+     }
+
+     muteUnMuteVideo(event:any)
+     {
+         console.log(event);
+         this.videoService.muteUnMuteVideo();
+     }
+
+     increaseLike(event:any)
+     {
+         console.log('increasing like');
+         //this.count++;
+         this.videoService.inc();
+     }
+
+     decreaseLike(event:any)
+     {
+        console.log('decreasing like');
+       // if(this.count>0)
+       // this.count--;
+       this.videoService.dec();
      }
 
 

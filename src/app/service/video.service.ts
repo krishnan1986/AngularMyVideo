@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class VideoService {
-    
+    public count = 0;
     // constructor() { }
 
     // play(videoplayer :ElementRef)
@@ -19,12 +19,18 @@ export class VideoService {
     private myFunctionCallSource2 = new Subject();
     private myFunctionCallSource3 = new Subject();
     private myFunctionCallSource4 = new Subject();
+    private myFunctionCallSource5 = new Subject();
+    private myFunctionCallSource6 = new Subject();
+    private myFunctionCallSource7 = new Subject();
 
     myFunctionCalled$ = this.myFunctionCallSource.asObservable();
     myFunctionCalled1$ = this.myFunctionCallSource1.asObservable();
      myFunctionCalled2$ = this.myFunctionCallSource2.asObservable();
     myFunctionCalled3$ = this.myFunctionCallSource3.asObservable();
     myFunctionCalled4$ = this.myFunctionCallSource4.asObservable();
+    myFunctionCalled5$ = this.myFunctionCallSource5.asObservable();
+    myFunctionCalled6$ = this.myFunctionCallSource6.asObservable();
+    myFunctionCalled7$ = this.myFunctionCallSource7.asObservable();
 
     callMyFunction(){
         this.myFunctionCallSource.next();
@@ -48,6 +54,24 @@ export class VideoService {
     reload()
     {
         this.myFunctionCallSource4.next();
+    }
+
+    muteUnMuteVideo()
+    {
+        this.myFunctionCallSource5.next();
+    }
+    inc()
+    {
+        console.log(this.count);
+    this.count++;
+        // this.myFunctionCallSource6.next();
+    }
+    dec()
+    {
+        if(this.count>0)
+       this.count--;
+       console.log(this.count);
+       // this.myFunctionCallSource7.next();
     }
 
 
