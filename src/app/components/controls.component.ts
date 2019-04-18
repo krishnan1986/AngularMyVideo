@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,Input,Output,EventEmitter } from '@angular/core';
 import { VideoService } from '../service/video.service';
-import { PlayerComponent } from './player.component';
 
 @Component({
     selector: 'my-controls',
     templateUrl: '../controls.component.html'
 })
 export class ControlsComponent implements OnInit {
-  
-    // @ViewChild(PlayerComponent) playerComponent: PlayerComponent;
+     @Input('count') count: number = 0
+     unliked: number = 0
+     @Output('countIncremented') countIncremented: EventEmitter<number> = new EventEmitter();
+    // // @ViewChild(PlayerComponent) playerComponent: PlayerComponent;
     toggleShowHide: string ="visible"; 
     constructor(private videoService: VideoService) { 
        
@@ -65,16 +66,20 @@ export class ControlsComponent implements OnInit {
      increaseLike(event:any)
      {
          console.log('increasing like');
-         //this.count++;
-         this.videoService.inc();
+         this.count++;
+         this.countIncremented.emit(this.count);
+         //this.videoService.inc();
      }
 
      decreaseLike(event:any)
      {
         console.log('decreasing like');
-       // if(this.count>0)
+       // if(this.count>0){
+            this.unliked++;
+         this.countIncremented.emit(this.unliked);
+       // }
        // this.count--;
-       this.videoService.dec();
+       //this.videoService.dec();
      }
 
 

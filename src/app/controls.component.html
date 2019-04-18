@@ -18,12 +18,13 @@
       <button type="button" class="btn btn-default btn-sm" (click)="muteUnMuteVideo()">
         <span class="glyphicon glyphicon-headphones"></span> Mute/Umute
       </button>
-
+      
       <button type="button" class="btn btn-default btn-sm" (click)="increaseLike()">
           <!-- <div class="container"> -->
             
-        <span class="glyphicon glyphicon-thumbs-up" ></span> Like
+        <span class="glyphicon glyphicon-thumbs-up" ></span> Like {{count}}
       </button>
+    
       <!-- <p>{{VideoService.count}}</p> -->
     <!-- </div> -->
 
@@ -32,7 +33,7 @@
             <button type="button" class="btn btn-default btn-sm" (click)="decreaseLike()">
                     <!-- <div class="container"> -->
                       
-                  <span class="glyphicon glyphicon-thumbs-down" ></span> DisLike
+                  <span class="glyphicon glyphicon-thumbs-down" ></span> DisLike {{unliked}}
                 </button>
                 <!-- <p>{{VideoService.count}}</p> -->
         <!-- </div> -->
