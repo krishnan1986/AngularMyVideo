@@ -7,14 +7,17 @@ import { VideoPlayerComponent } from './components/videoplayer.component';
 import { PlayerComponent } from './components/player.component';
 import { ControlsComponent } from './components/controls.component';
 import { VideoService } from './service/video.service';
+import { HttpClientModule } from '@angular/common/http';
+import { PlaylistComponent } from './components/playlist.component';
 
 @NgModule({
   declarations: [
-    AppComponent, VideoPlayerComponent, PlayerComponent,ControlsComponent
+    AppComponent, VideoPlayerComponent, PlayerComponent,ControlsComponent,PlaylistComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ VideoService],
   bootstrap: [AppComponent]
