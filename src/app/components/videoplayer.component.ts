@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
     template :`<h2> My video player </h2>
                 <my-player></my-player>
                 <my-controls count="0" (countIncremented)="handleCountIncrement($event)"></my-controls>
-                <table>
-                <my-playlist *ngFor="let video of videos" [title]="video.title" [url]="video.url" ></my-playlist>
+                <ul>
+               
+                <my-playlist *ngFor="let video of videos" [title]="video.title" [url]="video.url"  ></my-playlist>
                 <!-- <tr>{{video.title}}</tr>
                  <tr>{{video.url}}>/tr>-->
-                </table>
+                 
+                </ul>
                  <!--<my-playlist title="test" url="url1"></my-playlist>
                  <my-playlist title="test1" url="url2"></my-playlist>-->
                 
@@ -19,8 +21,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VideoPlayerComponent implements OnInit {
    
-    @Input('url') url: string;
-    @Input('title') title: string;
+   
     totalCount : number =0 ;
     videos: Array<video> = []
     

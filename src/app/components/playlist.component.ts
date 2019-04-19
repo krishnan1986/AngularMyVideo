@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
     templateUrl: '../playlist.component.html'
 })
 export class PlaylistComponent {
-
     @Input('url') url: string;
     @Input('title') title: string;
+   
    
     constructor(){
 
